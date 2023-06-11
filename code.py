@@ -55,6 +55,12 @@ def transcribe_audio(output_file):
     
 if __name__ == "__main__":
     
+    # initialize the engine that reads the LLM's answers
+    engine = pyttsx3.init()
+    engine.setProperty('rate', 175)
+    voices = engine.getProperty('voices')
+    engine.setProperty('voice', voices[1].id)
+    
     while True:
     
         prompt = transcribe_audio('recording.wav')
@@ -64,11 +70,6 @@ if __name__ == "__main__":
         resp = llm(prompt).replace("\n","")
 
         # Read the output aloud
-        engine = pyttsx3.init()
-        engine.setProperty('rate', 175)
-        voices = engine.getProperty('voices')
-        engine.setProperty('voice', voices[1].id)
-
         engine.say(resp)
         engine.runAndWait()
         
