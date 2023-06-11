@@ -20,7 +20,7 @@ python script.py
 
 and follow the instructions to interact with the chatbot. The way this works can be summarized as follows:
 
-- When prompted, the user records their query to ChatGPT (in English). This recording is saved locally and processed using OpenAI's Whisper API, in order to get a transcription.
+- When prompted, the user records their query to the LLM (in English). This recording is saved locally and processed using OpenAI's Whisper API, in order to get a transcription.
 - The transcription is passed to OpenAI's LLM (which is wrapped around a langchain model), so the LLM's response to the query is returned.
 - The response is read by a voice bot and the whole thing can be repeated as many times as the user wants, simply by answering "Yes" when asked by the bot if there are additional questions.
 
